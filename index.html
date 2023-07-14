@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tools/style.css">
+    <script src="encriptar.js"></script>
+</head>
+<body>
+  <main>
+    <div class="texto-space">
+        <img src="tools/Vector.png" alt="" class="logo"> 
+        <br>
+      <div class="area-site">
+        <div class="area-input">
+            <textarea name="" id="texto" cols="30" rows="10"
+            placeholder="Ingrese el texto aqui"></textarea>
+            <!-- <input type="text" placeholder="Ingrese el texto aqui">  -->
+        </div> 
+               
+        <div class="section-btn">
+            <img src="tools/bi_exclamation-circle-fill.png" alt="" class="icon-exc">
+            <p>Solo letras minúsculas y sin acentos</p>
+        </div> 
+        <div class="section-btn">
+          <button class="btn-enc" type="button" onclick="encriptar()">Encriptar</button>  
+          <button class="btn-desc"type="button" onclick="desencriptar()">Desencriptar</button>
+        </div>
+       
+      </div>
+ 
+    </div>
+    <div class="texto-decod">
+    
+            <img src="tools/Muñeco.png" alt="" class="img-muneco" id="muneco">
+            <div class="mensaje-encriptado" id="mensaje-encriptado">
+              <h2 id="titulo-mensaje">Ningún mensaje fue encontrado</h2>
+              <p id="parrafo">Ingresa el texto que desees encriptar o desencriptar.</p>
+            <!-- <p id="text-coppy">Caso con formato.</p> -->
+            <!-- <textarea name="mensaje" id="mensaje" cols="30" rows="10" class="mensaje"></textarea> -->
+            <button class="btn-desc coppy"  onclick="ejecutar('parrafo')">Copiar</button>
+      
+            </div>
+           
+            
+      
+    </div>
+    </main>
+   
+    
+</body>
+</html>
+<script>
+    function ejecutar(idelemento){
+  var aux = document.createElement("textarea");
+  aux.setAttribute("contentEditable", true);
+  aux.innerHTML = document.getElementById(idelemento).innerHTML;
+  aux.setAttribute("onfocus", "document.execCommand('selectAll',false,null)"); 
+  document.body.appendChild(aux);
+  aux.focus();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+}
+</script>
